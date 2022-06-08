@@ -3,6 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Menu from "./components/Menu";
 import "./App.css";
 import MainPage from "./components/MainPage";
+import Project from "./components/Project";
 
 const client = new ApolloClient({
   uri: "http://localhost:1337/graphql",
@@ -18,7 +19,7 @@ function App() {
             <Menu />
             <Routes>
               <Route exact path='/' element={<MainPage />} />
-              <Route path='/projects/:id'></Route>
+              <Route path='/projects/:id' element={<Project />}></Route>
               <Route path='/info/:id'></Route>
             </Routes>
           </div>
