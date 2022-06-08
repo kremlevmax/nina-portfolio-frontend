@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+/* @media all and (orientation: landscape) { */
+.menu__container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Mono", monospace;
+}
+
+.menu__container div:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.menu__container div:nth-last-child(2) {
+  margin-bottom: 2em;
+}
+
+.name-container {
+  padding-bottom: 4em;
+}
+
+.menu__name {
+  text-transform: uppercase;
+  font-size: xx-large;
+  color: #111111;
+  text-decoration: none;
+}
+
+.menu__sublist-title {
+  text-transform: uppercase;
+  color: #707070;
+  cursor: pointer;
+  transition: display 0.5s ease;
+}
+
+.menu__sublist-title:hover {
+  color: #111111;
+}
+
+.menu__sublist {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5em;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: #707070;
+}
+
+.menu__link:hover {
+  color: #111111;
+}
+
+.social-links-container {
+  font-size: 1.2em;
+}
+
+.menu__social-link-icon {
+  color: #707070;
+}
+
+.social-links-container .menu__social-link-icon:not(:last-child) {
+  margin-right: 0.6em;
+}
+
+.menu__social-link-icon:hover {
+  color: #111111;
+}
+/* } */
