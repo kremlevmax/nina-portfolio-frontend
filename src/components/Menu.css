@@ -1,18 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
-
 /* @media all and (orientation: landscape) { */
+
 .menu__container {
   display: flex;
   flex-direction: column;
-  font-family: "Roboto Mono", monospace;
 }
 
 .menu__container div:not(:last-child) {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
 .menu__container div:nth-last-child(2) {
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 .name-container {
@@ -41,6 +39,10 @@
   display: flex;
   flex-direction: column;
   padding-left: 0.5em;
+}
+
+.menu__sublist a:not(:last-child) {
+  margin: 0.5em 0;
 }
 
 .menu__link {

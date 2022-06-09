@@ -15,7 +15,7 @@ function App() {
     <Router>
       <ApolloProvider client={client}>
         <div className='App'>
-          <div className='wrapper'>
+          <div className='main-container'>
             <Menu />
             <Routes>
               <Route exact path='/' element={<MainPage />} />
