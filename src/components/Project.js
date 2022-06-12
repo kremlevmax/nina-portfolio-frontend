@@ -4,6 +4,7 @@ import { useQuery, gql } from "@apollo/client";
 
 import "./Project.css";
 import ImageGallery from "react-image-gallery";
+import LoadingBackground from "./LoadingBackground";
 
 const PROJECT = gql`
   query GetProject($id: ID!) {
@@ -136,12 +137,5 @@ export default function Project() {
       </>
     );
 
-  if (loading)
-    return (
-      <div className='project__loader-container'>
-        <h1 className='project__loader' data-content='LOADING'>
-          LOADING
-        </h1>
-      </div>
-    );
+  if (loading) return <LoadingBackground />;
 }
