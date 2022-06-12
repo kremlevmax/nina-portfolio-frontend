@@ -73,7 +73,7 @@
 
 @media (max-width: 1300px) {
   .name-container {
-    padding-bottom: 2em;
+    padding-bottom: 1em;
   }
 
   .menu__container div:nth-last-child(2) {
