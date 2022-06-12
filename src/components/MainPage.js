@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
+import "./MainPage.css";
 
 const MAIN_PAGE = gql`
   query GetMainPage {
@@ -29,6 +30,7 @@ export default function MainPage() {
       <div className='main-page__image-container'>
         {!loading && (
           <img
+            className='main-page__image'
             src={
               process.env.REACT_APP_BASE_URL +
               data.mainPage.data.attributes.image.data[0].attributes.formats

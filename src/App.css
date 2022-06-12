@@ -1,14 +1,24 @@
 .App {
-  overflow: hidden;
-  display: flex;
-  margin-top: 4%;
-  min-height: 100%;
+  max-width: 1400px;
 }
 
 .main-container {
   display: flex;
-  justify-content: space-between;
-  max-width: 1400px;
-  margin: 0 auto;
   gap: 60px;
+  flex: 1 1 auto;
+  margin: 10% 40px;
+}
+
+@media (max-width: 1300px) {
+  .main-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.main-menu-container {
+}
+
+.main-image-container {
+  max-width: 976px;
 }

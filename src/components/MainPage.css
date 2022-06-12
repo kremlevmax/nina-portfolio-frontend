@@ -1,6 +1,14 @@
 .main-page__image-container {
-  margin: 0 20px;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  margin-bottom: 80px;
 }
+
+.main-page__image {
+  max-width: 976px;
+}
+
 .project__loader-container {
   position: absolute;
   height: 100%;
@@ -31,5 +39,5 @@
   overflow: hidden;
   max-width: 5em;
   color: #111111;
-  animation: loading 10s linear;
+  animation: loading 0.5s linear;
 }

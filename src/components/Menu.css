@@ -22,6 +22,7 @@
   font-size: xx-large;
   color: #111111;
   text-decoration: none;
+  line-height: 1em;
 }
 
 .menu__sublist-title {
@@ -41,7 +42,7 @@
   padding-left: 0.5em;
 }
 
-.menu__sublist a:not(:last-child) {
+.menu__sublist a {
   margin: 0.5em 0;
 }
 
@@ -69,4 +70,13 @@
 .menu__social-link-icon:hover {
   color: #111111;
 }
-/* } */
+
+@media (max-width: 1300px) {
+  .name-container {
+    padding-bottom: 2em;
+  }
+
+  .menu__container div:nth-last-child(2) {
+    margin-bottom: 2em;
+  }
+}

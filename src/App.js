@@ -16,12 +16,16 @@ function App() {
       <ApolloProvider client={client}>
         <div className='App'>
           <div className='main-container'>
-            <Menu />
-            <Routes>
-              <Route exact path='/' element={<MainPage />} />
-              <Route path='/projects/:id' element={<Project />}></Route>
-              <Route path='/info/:id'></Route>
-            </Routes>
+            <div className='main-menu-container'>
+              <Menu />
+            </div>
+            <div className='main-image-container'>
+              <Routes>
+                <Route exact path='/' element={<MainPage />} />
+                <Route path='/projects/:id' element={<Project />}></Route>
+                <Route path='/info/:id'></Route>
+              </Routes>
+            </div>
           </div>
         </div>
       </ApolloProvider>
