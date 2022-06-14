@@ -10,23 +10,39 @@
   background-color: #ffffff;
 }
 
-.project__loader {
-  left: 50%;
-  color: #707070;
-  font-family: "Rubik";
-}
-
-@keyframes loading {
+@-webkit-keyframes line {
   from {
-    max-width: 0;
+    background-position: -60px 0;
+  }
+  to {
+    background-position: 60px 0;
+  }
+}
+@keyframes line {
+  from {
+    background-position: -60px 0;
+  }
+  to {
+    background-position: 60px 0;
   }
 }
 
-.project__loader:before {
-  content: attr(data-content);
-  position: absolute;
-  overflow: hidden;
-  max-width: 5em;
-  color: #111111;
-  animation: loading 0.5s linear;
+.line:before {
+  -webkit-animation: line 0.75s infinite alternate ease-in-out;
+  animation: line 0.75s infinite alternate ease-in-out;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--primary)),
+    to(var(--primary))
+  );
+  background: linear-gradient(90deg, black, grey);
+  background-repeat: no-repeat;
+  background-size: 60px 20px;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 60px;
+  border-radius: 10px;
 }

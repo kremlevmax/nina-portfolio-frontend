@@ -10,38 +10,82 @@ import {
 import "./Menu.css";
 import { useQuery, gql } from "@apollo/client";
 
-const PROJECTS = gql`
-  query GetProjects {
+const PROJECTSANDMAINPAGE = gql`
+  query GetMenuData {
+    mainPage {
+      data {
+        attributes {
+          name
+          name_ru
+          name_skh
+          projects
+          projects_ru
+          projects_skh
+          info
+          info_ru
+          info_skh
+        }
+      }
+    }
+
     projects {
       data {
         id
         attributes {
           title
+          title_ru
+          title_skh
         }
       }
     }
   }
 `;
 
-const Menu = () => {
+const Menu = ({ siteLanguage }) => {
   const [isProjectsClicked, setIsProjectsClicked] = useState(false);
   const [isInfoClicked, setIsInfoClicked] = useState(false);
 
   const projectDisplay = isProjectsClicked ? "flex" : "none";
   const infoDisplay = isInfoClicked ? "flex" : "none";
 
-  const { loading, error, data } = useQuery(PROJECTS);
+  const { loading, error, data } = useQuery(PROJECTSANDMAINPAGE);
+
+  let projectTitle = "";
+  let name = "";
+  let projectSubdivisionTitle = "";
+  let infoSubdivisionTitle = "";
 
   const projectLinks = !loading ? (
-    data.projects.data.map((project) => (
-      <Link
-        key={project.id}
-        className='menu__link'
-        to={`/projects/` + project.id}
-      >
-        {project.attributes.title}
-      </Link>
-    ))
+    data.projects.data.map((project) => {
+      switch (siteLanguage) {
+        case "ru":
+          projectTitle = project.attributes.title_ru;
+          name = data.mainPage.data.attributes.name_ru;
+          projectSubdivisionTitle = data.mainPage.data.attributes.projects_ru;
+          infoSubdivisionTitle = data.mainPage.data.attributes.info_ru;
+          break;
+        case "skh":
+          projectTitle = project.attributes.title_skh;
+          name = data.mainPage.data.attributes.name_skh;
+          projectSubdivisionTitle = data.mainPage.data.attributes.projects_skh;
+          infoSubdivisionTitle = data.mainPage.data.attributes.info_skh;
+          break;
+        default:
+          projectTitle = project.attributes.title;
+          name = data.mainPage.data.attributes.name;
+          projectSubdivisionTitle = data.mainPage.data.attributes.projects;
+          infoSubdivisionTitle = data.mainPage.data.attributes.info;
+      }
+      return (
+        <Link
+          key={project.id}
+          className='menu__link'
+          to={`/projects/` + project.id}
+        >
+          {projectTitle}
+        </Link>
+      );
+    })
   ) : (
     <></>
   );
@@ -50,7 +94,7 @@ const Menu = () => {
     <div className='menu__container'>
       <div className='menu__part name-container'>
         <Link className='menu__name' to='/'>
-          Nina Sleptsova
+          {name}
         </Link>
       </div>
 
@@ -59,7 +103,7 @@ const Menu = () => {
           className='menu__sublist-title'
           onClick={() => setIsProjectsClicked(!isProjectsClicked)}
         >
-          Projects
+          {projectSubdivisionTitle}
         </span>
         <div
           className='menu__sublist projects-sublist'
@@ -74,7 +118,7 @@ const Menu = () => {
           className='menu__sublist-title'
           onClick={() => setIsInfoClicked(!isInfoClicked)}
         >
-          Info
+          {infoSubdivisionTitle}
         </span>
         <div
           className='menu__sublist info-sublist'

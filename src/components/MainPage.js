@@ -8,8 +8,6 @@ const MAIN_PAGE = gql`
     mainPage {
       data {
         attributes {
-          title
-          description
           image {
             data {
               id

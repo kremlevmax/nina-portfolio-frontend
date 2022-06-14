@@ -4,6 +4,8 @@ import Menu from "./components/Menu";
 import "./App.css";
 import MainPage from "./components/MainPage";
 import Project from "./components/Project";
+import { useState } from "react";
+import LanguageSelector from "./components/LanguageSelector";
 
 const client = new ApolloClient({
   uri: "http://localhost:1337/graphql",
@@ -11,18 +13,24 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [siteLanguage, setSiteLanguage] = useState("ru");
+
   return (
     <Router>
       <ApolloProvider client={client}>
         <div className='App'>
           <div className='main-container'>
             <div className='main-menu-container'>
-              <Menu />
+              <Menu siteLanguage={siteLanguage} />
+              <LanguageSelector />
             </div>
             <div className='main-image-container'>
               <Routes>
                 <Route exact path='/' element={<MainPage />} />
-                <Route path='/projects/:id' element={<Project />}></Route>
+                <Route
+                  path='/projects/:id'
+                  element={<Project siteLanguage={siteLanguage} />}
+                ></Route>
                 <Route path='/info/:id'></Route>
               </Routes>
             </div>

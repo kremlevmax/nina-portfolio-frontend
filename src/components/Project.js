@@ -13,7 +13,11 @@ const PROJECT = gql`
         id
         attributes {
           title
+          title_ru
+          title_skh
           description
+          description_ru
+          description_skh
           photos {
             data {
               id
@@ -35,15 +39,43 @@ const PROJECT = gql`
   }
 `;
 
-export default function Project() {
+export default function Project({ siteLanguage }) {
   const { id } = useParams();
   const { loading, error, data } = useQuery(PROJECT, { variables: { id: id } });
 
-  const projectName = !loading ? data.project.data.attributes.title : "";
-  const projectDescription = !loading
-    ? data.project.data.attributes.description
-    : "";
+  const projectTitlesArray = !loading
+    ? [
+        data.project.data.attributes.title,
+        data.project.data.attributes.title_ru,
+        data.project.data.attributes.title_skh,
+      ]
+    : [];
+  const projectDescriptionsArray = !loading
+    ? [
+        data.project.data.attributes.description,
+        data.project.data.attributes.description_ru,
+        data.project.data.attributes.description_skh,
+      ]
+    : [];
   const imageItems = !loading ? data.project.data.attributes.photos.data : [];
+
+  let titleString = "";
+  let descriptionString = "";
+
+  switch (siteLanguage) {
+    case "skh":
+      titleString = !loading ? projectTitlesArray[2] : "";
+      descriptionString = !loading ? projectDescriptionsArray[2] : "";
+      break;
+    case "ru":
+      titleString = !loading ? projectTitlesArray[1] : "";
+      descriptionString = !loading ? projectDescriptionsArray[1] : "";
+      break;
+    default:
+      titleString = !loading ? projectTitlesArray[0] : "";
+      descriptionString = !loading ? projectDescriptionsArray[0] : "";
+      break;
+  }
 
   const images = !loading
     ? imageItems.map((imageItem) => ({
@@ -53,7 +85,7 @@ export default function Project() {
         thumbnail:
           process.env.REACT_APP_BASE_URL +
           imageItem.attributes.file.data[0].attributes.formats.thumbnail.url,
-        description: imageItem.attributes.description,
+        description: descriptionString,
       }))
     : [];
 
@@ -64,11 +96,11 @@ export default function Project() {
           <ImageGallery items={images} infinite={true} useTranslate3D={false} />
         </div>
         <div className='project__name-container'>
-          <span className='project__name'>{projectName}</span>
+          <span className='project__name'>{titleString}</span>
         </div>
         <div className='project__description-conatainer'>
           <span className='project__description'>
-            {projectDescription}Lorem ipsum dolor sit amet, consectetur
+            {descriptionString}Lorem ipsum dolor sit amet, consectetur
             adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
