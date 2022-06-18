@@ -1,21 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import britishFlag from "../img/eng_flag.png";
 import sakhaFlag from "../img/sakha_flag.png";
 import russianFlag from "../img/rus_flag.png";
 import "./LanguageSelector.css";
 
-export default function LanguageSelector() {
-  const [languges, setLanguges] = useState([
-    { name: "English", tag: "en", flag: britishFlag, selected: true },
+export default function LanguageSelector({ setSiteLanguage }) {
+  const languageData = [
+    { name: "English", tag: "en", flag: britishFlag, selected: false },
     { name: "Саха тыла", tag: "skh", flag: sakhaFlag, selected: false },
     { name: "Русский", tag: "ru", flag: russianFlag, selected: false },
-  ]);
+  ];
+
+  useEffect(() => {
+    const systemLanguage = navigator.language.split("-")[0];
+    setSiteLanguage(systemLanguage);
+  }, [setSiteLanguage]);
+
+  const [languges, setLanguges] = useState(
+    languageData.map((language) => {
+      if (language.tag === navigator.language.split("-")[0]) {
+        language.selected = true;
+        return language;
+      } else {
+        return language;
+      }
+    })
+  );
+
+  const [show, setShow] = useState(false);
+  const opacity = show ? 1 : 0;
+  const visibility = show ? "visible" : "hidden";
 
   const selectedLanguage = languges.filter(
     (language) => language.selected === true
   );
 
   const selectLanguage = (tag) => {
+    setShow(false);
+    setSiteLanguage(tag);
     setLanguges(
       languges.map((language) => {
         if (language.selected === true) {
@@ -30,8 +52,6 @@ export default function LanguageSelector() {
       })
     );
   };
-
-  console.log(languges);
 
   const nonSelectedLanguages = languges.map((language) => {
     if (language.selected === false) {
@@ -54,7 +74,10 @@ export default function LanguageSelector() {
 
   return (
     <div className='language-selector-container'>
-      <div className='language-selector__language'>
+      <div
+        className='language-selector__language'
+        onClick={() => setShow(!show)}
+      >
         <div className='language-selector__language-data'>
           <img
             src={selectedLanguage[0].flag}
@@ -67,7 +90,10 @@ export default function LanguageSelector() {
         </div>
         <span>{"\u25BC"}</span>
       </div>
-      <div className='language-selector__non-selected-languages'>
+      <div
+        className='language-selector__non-selected-languages'
+        style={{ opacity: opacity, visibility: visibility }}
+      >
         {nonSelectedLanguages}
       </div>
     </div>

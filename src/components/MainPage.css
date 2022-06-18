@@ -2,12 +2,10 @@
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
-  margin-bottom: 80px;
   width: 100%;
 }
 
 .main-page__image {
-  max-width: 976px;
   width: 100%;
 }
 

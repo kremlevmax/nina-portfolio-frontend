@@ -9,7 +9,7 @@
 }
 
 .project__image-container {
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 .project__name-container {
@@ -18,15 +18,24 @@
 
 .project__name {
   opacity: 0.7;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .project__description-conatainer {
-  text-align: center;
+  margin: 20px 60px;
 }
 
 .project__description {
   opacity: 0.6;
+  text-align: justify;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 991.98px) {
+  .project__image-container {
+    margin-bottom: 2em;
+  }
+  .project__description-conatainer {
+    margin: 20px;
+  }
 }

@@ -28,8 +28,8 @@
 }
 
 .line:before {
-  -webkit-animation: line 0.75s infinite alternate ease-in-out;
-  animation: line 0.75s infinite alternate ease-in-out;
+  -webkit-animation: line 0.05s infinite alternate ease-in-out;
+  animation: line 0.05s infinite alternate ease-in-out;
   background: -webkit-gradient(
     linear,
     left top,

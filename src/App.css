@@ -8,6 +8,10 @@
   margin: 5% 40px;
 }
 
+.main-container-bottom-menu {
+  text-align: center;
+}
+
 @media (max-width: 1200px) {
   .main-container {
     flex-direction: column;
@@ -16,6 +20,40 @@
   }
 }
 
+@media (max-width: 991.98px) {
+  .main-container {
+    margin: 8% 40px;
+    align-items: center;
+  }
+  .menu__top-part {
+    text-align: center;
+  }
+  .menu__part {
+    margin-left: 0px;
+  }
+}
+
+.main-menu-container {
+  flex: 0 0 274px;
+}
+
 .main-image-container {
-  max-width: 976px;
+  flex: 1 1 976px;
+}
+
+@media (max-width: 1200px) {
+  .main-menu-container {
+    flex: 1 1 auto;
+  }
+
+  .main-image-container {
+    flex: 1 1 auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .main-container-extra-bottom-menu {
+    display: none;
+  }
 }

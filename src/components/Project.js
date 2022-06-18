@@ -99,7 +99,7 @@ export default function Project({ siteLanguage }) {
           <span className='project__name'>{titleString}</span>
         </div>
         <div className='project__description-conatainer'>
-          <span className='project__description'>
+          <p className='project__description'>
             {descriptionString}Lorem ipsum dolor sit amet, consectetur
             adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -164,7 +164,7 @@ export default function Project({ siteLanguage }) {
             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
-          </span>
+          </p>
         </div>
       </>
     );

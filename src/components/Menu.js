@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAt, faMobileRetro } from "@fortawesome/free-solid-svg-icons";
-import {
-  faInstagram,
-  faVk,
-  faTelegram,
-} from "@fortawesome/free-brands-svg-icons";
+import { SecondMenu } from "./SecondMenu";
 import "./Menu.css";
 import { useQuery, gql } from "@apollo/client";
 
@@ -41,7 +35,7 @@ const PROJECTSANDMAINPAGE = gql`
   }
 `;
 
-const Menu = ({ siteLanguage }) => {
+const Menu = ({ siteLanguage, setSiteLanguage }) => {
   const [isProjectsClicked, setIsProjectsClicked] = useState(false);
   const [isInfoClicked, setIsInfoClicked] = useState(false);
 
@@ -92,62 +86,53 @@ const Menu = ({ siteLanguage }) => {
 
   return (
     <div className='menu__container'>
-      <div className='menu__part name-container'>
-        <Link className='menu__name' to='/'>
-          {name}
-        </Link>
-      </div>
-
-      <div className='menu__part'>
-        <span
-          className='menu__sublist-title'
-          onClick={() => setIsProjectsClicked(!isProjectsClicked)}
-        >
-          {projectSubdivisionTitle}
-        </span>
-        <div
-          className='menu__sublist projects-sublist'
-          style={{ display: projectDisplay }}
-        >
-          {projectLinks}
-        </div>
-      </div>
-
-      <div className='menu__part'>
-        <span
-          className='menu__sublist-title'
-          onClick={() => setIsInfoClicked(!isInfoClicked)}
-        >
-          {infoSubdivisionTitle}
-        </span>
-        <div
-          className='menu__sublist info-sublist'
-          style={{ display: infoDisplay }}
-        >
-          <Link className='menu__link' to='/info1'>
-            Info 1
-          </Link>
-          <Link className='menu__link' to='/info2'>
-            Info 2
-          </Link>
-          <Link className='menu__link' to='/info3'>
-            Info 3
+      <div className='menu__top-part'>
+        <div className='name-container'>
+          <Link className='menu__name' to='/'>
+            {name}
           </Link>
         </div>
-      </div>
 
-      <div className='menu_part social-links-container'>
-        <FontAwesomeIcon icon={faVk} className='menu__social-link-icon' />
-        <FontAwesomeIcon icon={faTelegram} className='menu__social-link-icon' />
-        <FontAwesomeIcon
-          icon={faInstagram}
-          className='menu__social-link-icon'
-        />
-        <FontAwesomeIcon icon={faAt} className='menu__social-link-icon' />
-        <FontAwesomeIcon
-          icon={faMobileRetro}
-          className='menu__social-link-icon'
-        />
+        <div className='menu__part'>
+          <span
+            className='menu__sublist-title'
+            onClick={() => setIsProjectsClicked(!isProjectsClicked)}
+          >
+            {projectSubdivisionTitle}
+          </span>
+          <div
+            className='menu__sublist projects-sublist'
+            style={{ display: projectDisplay }}
+          >
+            {projectLinks}
+          </div>
+        </div>
+
+        <div className='menu__part'>
+          <span
+            className='menu__sublist-title'
+            onClick={() => setIsInfoClicked(!isInfoClicked)}
+          >
+            {infoSubdivisionTitle}
+          </span>
+          <div
+            className='menu__sublist info-sublist'
+            style={{ display: infoDisplay }}
+          >
+            <Link className='menu__link' to='/info1'>
+              Info 1
+            </Link>
+            <Link className='menu__link' to='/info2'>
+              Info 2
+            </Link>
+            <Link className='menu__link' to='/info3'>
+              Info 3
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className='menu__bottom-part-first'>
+        <SecondMenu setSiteLanguage={setSiteLanguage} />
       </div>
     </div>
   );
