@@ -12,6 +12,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+///Separate later
+
 function App() {
   const [siteLanguage, setSiteLanguage] = useState("ru");
 
