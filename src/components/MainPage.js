@@ -24,6 +24,7 @@ const MAIN_PAGE = gql`
 
 export default function MainPage() {
   const { loading, error, data } = useQuery(MAIN_PAGE);
+  console.log(error);
   if (!loading)
     return (
       <div className='main-page__image-container'>
