@@ -8,10 +8,11 @@ import { useState } from "react";
 import { SecondMenu } from "./components/SecondMenu";
 
 const client = new ApolloClient({
-  uri: "http://localhost:1337/graphql",
+  uri: "https://nina-portfolio-backend-app-97rbk.ondigitalocean.app/graphql",
   cache: new InMemoryCache(),
 });
 
+///http://localhost:1337
 ///Separate later
 
 function App() {
