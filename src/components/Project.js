@@ -1,47 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery, gql } from "@apollo/client";
-
+import { useProject } from "../hooks/useProject";
 import "./Project.css";
 import ImageGallery from "react-image-gallery";
 import LoadingBackground from "./LoadingBackground";
 
-const PROJECT = gql`
-  query GetProject($id: ID!) {
-    project(id: $id) {
-      data {
-        id
-        attributes {
-          title
-          title_ru
-          title_skh
-          description
-          description_ru
-          description_skh
-          photos {
-            data {
-              id
-              attributes {
-                description
-                file {
-                  data {
-                    attributes {
-                      formats
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 export default function Project({ siteLanguage }) {
   const { id } = useParams();
-  const { loading, error, data } = useQuery(PROJECT, { variables: { id: id } });
+  const { loading, error, data } = useProject(id);
 
   const projectTitlesArray = !loading
     ? [

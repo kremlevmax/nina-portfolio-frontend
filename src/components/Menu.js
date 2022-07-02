@@ -2,38 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { SecondMenu } from "./SecondMenu";
 import "./Menu.css";
-import { useQuery, gql } from "@apollo/client";
-
-const PROJECTSANDMAINPAGE = gql`
-  query GetMenuData {
-    mainPage {
-      data {
-        attributes {
-          name
-          name_ru
-          name_skh
-          projects
-          projects_ru
-          projects_skh
-          info
-          info_ru
-          info_skh
-        }
-      }
-    }
-
-    projects {
-      data {
-        id
-        attributes {
-          title
-          title_ru
-          title_skh
-        }
-      }
-    }
-  }
-`;
+import { useMenu } from "../hooks/useMenu";
 
 const Menu = ({ siteLanguage, setSiteLanguage }) => {
   const [isProjectsClicked, setIsProjectsClicked] = useState(false);
@@ -42,7 +11,7 @@ const Menu = ({ siteLanguage, setSiteLanguage }) => {
   const projectDisplay = isProjectsClicked ? "flex" : "none";
   const infoDisplay = isInfoClicked ? "flex" : "none";
 
-  const { loading, error, data } = useQuery(PROJECTSANDMAINPAGE);
+  const { loading, error, data } = useMenu();
 
   let projectTitle = "";
   let name = "";

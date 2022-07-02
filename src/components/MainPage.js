@@ -1,30 +1,10 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
 import "./MainPage.css";
 import LoadingBackground from "./LoadingBackground";
-
-const MAIN_PAGE = gql`
-  query GetMainPage {
-    mainPage {
-      data {
-        attributes {
-          image {
-            data {
-              id
-              attributes {
-                formats
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import { useMainPage } from "../hooks/useMainPage";
 
 export default function MainPage() {
-  const { loading, error, data } = useQuery(MAIN_PAGE);
-  console.log(error);
+  const { loading, data } = useMainPage();
   if (!loading)
     return (
       <div className='main-page__image-container'>

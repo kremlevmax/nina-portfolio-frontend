@@ -4,7 +4,20 @@ import "./LoadingBackground.css";
 export default function LoadingBackGround() {
   return (
     <div className='project__loader-container'>
-      <div className='line'></div>
+      <div className='lds-spinner'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 }
