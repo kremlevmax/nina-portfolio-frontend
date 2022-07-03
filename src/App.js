@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import Menu from "./components/Menu";
+import PageLayout from "./components/PageLayout";
 import "./App.css";
 import MainPage from "./components/MainPage";
 import Project from "./components/Project";
 import { useState } from "react";
-import { SecondMenu } from "./components/SecondMenu";
+import { BottomdMenu } from "./components/BottomdMenu";
 
 const client = new ApolloClient({
   uri: "https://nina-portfolio-backend-app-97rbk.ondigitalocean.app/graphql",
@@ -19,33 +19,31 @@ function App() {
   const [siteLanguage, setSiteLanguage] = useState("ru");
 
   return (
-    <Router>
-      <ApolloProvider client={client}>
-        <div className='App'>
-          <div className='main-container'>
-            <div className='main-menu-container'>
-              <Menu
+    <ApolloProvider client={client}>
+      <div className='App'>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <PageLayout
                 siteLanguage={siteLanguage}
                 setSiteLanguage={setSiteLanguage}
               />
-            </div>
-            <div className='main-image-container'>
-              <Routes>
-                <Route exact path='/' element={<MainPage />} />
-                <Route
-                  path='/projects/:id'
-                  element={<Project siteLanguage={siteLanguage} />}
-                ></Route>
-                <Route path='/info/:id'></Route>
-              </Routes>
-            </div>
-            <div className='main-container-extra-bottom-menu'>
-              <SecondMenu setSiteLanguage={setSiteLanguage} />
-            </div>
-          </div>
-        </div>
-      </ApolloProvider>
-    </Router>
+            }
+          >
+            <Route path='/' element={<MainPage />} />
+            <Route
+              path='/projects/:id'
+              element={<Project siteLanguage={siteLanguage} />}
+            />
+            {/* <Route path='/info/:id' /> */}
+          </Route>
+        </Routes>
+      </div>
+      <div className='app__bottom-menu_small-screens'>
+        <BottomdMenu setSiteLanguage={setSiteLanguage} />
+      </div>
+    </ApolloProvider>
   );
 }
 

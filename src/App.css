@@ -1,59 +1,16 @@
 .App {
-  max-width: 1400px;
-}
-
-.main-container {
+  width: 100%;
   display: flex;
-  gap: 60px;
-  margin: 5% 40px;
+  justify-content: center;
 }
 
-.main-container-bottom-menu {
-  text-align: center;
+.app__bottom-menu_small-screens {
+  display: flex;
+  justify-content: center;
 }
 
-@media (max-width: 1200px) {
-  .main-container {
-    flex-direction: column;
-    gap: 40px;
-    margin: 4% 20px;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .main-container {
-    margin: 8% 40px;
-    align-items: center;
-  }
-  .menu__top-part {
-    text-align: center;
-  }
-  .menu__part {
-    margin-left: 0px;
-  }
-}
-
-.main-menu-container {
-  flex: 0 0 274px;
-}
-
-.main-image-container {
-  flex: 1 1 976px;
-}
-
-@media (max-width: 1200px) {
-  .main-menu-container {
-    flex: 1 1 auto;
-  }
-
-  .main-image-container {
-    flex: 1 1 auto;
-    margin-bottom: 30px;
-  }
-}
-
-@media (min-width: 1201px) {
-  .main-container-extra-bottom-menu {
+@media (min-width: 850px) {
+  .app__bottom-menu_small-screens {
     display: none;
   }
 }

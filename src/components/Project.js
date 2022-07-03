@@ -7,7 +7,7 @@ import LoadingBackground from "./LoadingBackground";
 
 export default function Project({ siteLanguage }) {
   const { id } = useParams();
-  const { loading, error, data } = useProject(id);
+  const { loading, data } = useProject(id);
 
   const projectTitlesArray = !loading
     ? [
@@ -55,20 +55,19 @@ export default function Project({ siteLanguage }) {
       }))
     : [];
 
-  if (!loading)
-    return (
-      <>
-        <div className='project__image-container'>
-          <ImageGallery items={images} infinite={true} useTranslate3D={false} />
-        </div>
-        <div className='project__name-container'>
-          <span className='project__name'>{titleString}</span>
-        </div>
-        <div className='project__description-conatainer'>
-          <p className='project__description'>{descriptionString}</p>
-        </div>
-      </>
-    );
-
   if (loading) return <LoadingBackground />;
+
+  return (
+    <>
+      <div className='project__image-container'>
+        <ImageGallery items={images} infinite={true} useTranslate3D={false} />
+      </div>
+      <div className='project__name-container'>
+        <span className='project__name'>{titleString}</span>
+      </div>
+      <div className='project__description-conatainer'>
+        <p className='project__description'>{descriptionString}</p>
+      </div>
+    </>
+  );
 }
