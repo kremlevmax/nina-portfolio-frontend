@@ -8,9 +8,3 @@
   display: flex;
   justify-content: center;
 }
-
-@media (min-width: 850px) {
-  .app__bottom-menu_small-screens {
-    display: none;
-  }
-}

@@ -35,7 +35,7 @@
 @media (max-width: 851px) {
   .page-layout__image-container {
     flex: 0 1 auto;
-    margin-bottom: 5vw;
+    margin-bottom: 15vw;
   }
 }
 
@@ -102,6 +102,12 @@
 
 .page-layout__menu-link:hover {
   color: #111111;
+}
+
+@media (min-width: 850px) {
+  .menu__bottom-menu_small-screens {
+    display: none;
+  }
 }
 
 @media (max-width: 851px) {

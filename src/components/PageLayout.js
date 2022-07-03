@@ -109,6 +109,9 @@ const PageLayout = ({ siteLanguage, setSiteLanguage }) => {
       <div className='page-layout__image-container'>
         <Outlet />
       </div>
+      <div className='menu__bottom-menu_small-screens'>
+        <BottomdMenu setSiteLanguage={setSiteLanguage} />
+      </div>
     </div>
   );
 };

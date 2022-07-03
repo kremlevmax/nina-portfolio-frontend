@@ -5,7 +5,6 @@ import "./App.css";
 import MainPage from "./components/MainPage";
 import Project from "./components/Project";
 import { useState } from "react";
-import { BottomdMenu } from "./components/BottomdMenu";
 
 const client = new ApolloClient({
   uri: "https://nina-portfolio-backend-app-97rbk.ondigitalocean.app/graphql",
@@ -39,9 +38,6 @@ function App() {
             {/* <Route path='/info/:id' /> */}
           </Route>
         </Routes>
-      </div>
-      <div className='app__bottom-menu_small-screens'>
-        <BottomdMenu setSiteLanguage={setSiteLanguage} />
       </div>
     </ApolloProvider>
   );
