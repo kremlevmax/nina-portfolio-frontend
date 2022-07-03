@@ -35,6 +35,7 @@
 @media (max-width: 851px) {
   .page-layout__image-container {
     flex: 0 1 auto;
+    margin-bottom: 5vw;
   }
 }
 
