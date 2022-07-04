@@ -8,8 +8,16 @@
   flex: 1 1 auto;
 }
 
+.project__carousel-container {
+  overflow: hidden;
+  max-width: 925px;
+}
+
 .project__image-container {
-  margin-bottom: 4em;
+  max-height: 615px;
+  height: 100%;
+  max-width: 920px;
+  padding: 0 2px;
 }
 
 .project__name-container {
@@ -31,11 +39,11 @@
   text-align: justify;
 }
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   .project__image-container {
     margin-bottom: 2em;
   }
   .project__description-conatainer {
     margin: 20px;
   }
-}
+} */

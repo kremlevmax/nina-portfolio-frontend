@@ -14,11 +14,13 @@
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^10.0.0",
     "env-cmd": "^10.1.0",
+    "framer-motion": "^6.3.16",
     "graphql": "^16.5.0",
     "normalize.css": "^8.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-image-gallery": "^1.2.8",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

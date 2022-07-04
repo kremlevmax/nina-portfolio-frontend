@@ -1,5 +1,4 @@
 import React from "react";
-import "./LoadingBackground.css";
 
 export default function LoadingBackGround() {
   return (
