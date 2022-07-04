@@ -4,13 +4,16 @@ import { BottomdMenu } from "./BottomdMenu";
 import "./PageLayout.css";
 import { useMenu } from "../hooks/useMenu";
 import { Outlet } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+
+const variants = {
+  open: { opacity: 1, height: "auto" },
+  close: { opacity: 0, height: 0 },
+};
 
 const PageLayout = ({ siteLanguage, setSiteLanguage }) => {
   const [isProjectsClicked, setIsProjectsClicked] = useState(false);
   const [isInfoClicked, setIsInfoClicked] = useState(false);
-
-  const projectDisplay = isProjectsClicked ? "flex" : "none";
-  const infoDisplay = isInfoClicked ? "flex" : "none";
 
   const { loading, data } = useMenu();
 
@@ -71,12 +74,18 @@ const PageLayout = ({ siteLanguage, setSiteLanguage }) => {
             >
               {projectSubdivisionTitle}
             </span>
-            <div
-              className='page-layout__menu-sublist projects-sublist'
-              style={{ display: projectDisplay }}
-            >
-              {projectLinks}
-            </div>
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                initial={false}
+                animate={isProjectsClicked ? "open" : "close"}
+                variants={variants}
+                transition={{ duration: 0.7 }}
+                exit={{ opacity: 0, height: 0 }}
+                className='page-layout__menu-sublist projects-sublist'
+              >
+                {projectLinks}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           <div className='page-layout__menu-part'>
@@ -86,20 +95,26 @@ const PageLayout = ({ siteLanguage, setSiteLanguage }) => {
             >
               {infoSubdivisionTitle}
             </span>
-            <div
-              className='page-layout__menu-sublist info-sublist'
-              style={{ display: infoDisplay }}
-            >
-              <Link className='page-layout__menu-link' to='/info1'>
-                Info 1
-              </Link>
-              <Link className='page-layout__menu-link' to='/info2'>
-                Info 2
-              </Link>
-              <Link className='page-layout__menu-link' to='/info3'>
-                Info 3
-              </Link>
-            </div>
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                initial={false}
+                animate={isInfoClicked ? "open" : "close"}
+                variants={variants}
+                transition={{ duration: 0.7 }}
+                exit={"close"}
+                className='page-layout__menu-sublist info-sublist'
+              >
+                <Link className='page-layout__menu-link' to='/info1'>
+                  Info 1
+                </Link>
+                <Link className='page-layout__menu-link' to='/info2'>
+                  Info 2
+                </Link>
+                <Link className='page-layout__menu-link' to='/info3'>
+                  Info 3
+                </Link>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
         <div className='menu__bottom-part_large-screen'>
