@@ -1,5 +1,6 @@
 import React from "react";
 import "./MainPage.css";
+import LoadingBackground from "./LoadingBackground";
 import { useMainPage } from "../hooks/useMainPage";
 import { motion } from "framer-motion";
 
