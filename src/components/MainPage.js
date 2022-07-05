@@ -9,18 +9,22 @@ export default function MainPage() {
 
   if (!loading)
     return (
-      <motion.img
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4 }}
-        className='main-page__image'
-        src={
-          process.env.REACT_APP_BASE_URL +
-          data.mainPage.data.attributes.image.data[0].attributes.formats.large
-            .url
-        }
-        alt={data.mainPage.data.attributes.title}
-      />
+        className='main-page__image-container'
+      >
+        <img
+          className='main-page__image'
+          src={
+            process.env.REACT_APP_BASE_URL +
+            data.mainPage.data.attributes.image.data[0].attributes.formats.large
+              .url
+          }
+          alt={data.mainPage.data.attributes.title}
+        />
+      </motion.div>
     );
 }

@@ -1,4 +1,4 @@
-.page-layout__container {
+.menu__container {
   display: flex;
   margin-top: 6vw;
   flex: 0 1 1250px;
@@ -6,52 +6,34 @@
   gap: 20px;
 }
 
-@media (max-width: 851px) {
-  .page-layout__container {
-    flex-direction: column;
-  }
-}
-
-.page-layout__menu-container {
-  flex: 1 1 250px;
+.menu__menu-container {
+  flex: 0 0 250px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 604px;
+  height: 598px;
 }
 
 @media (max-width: 851px) {
-  .page-layout__menu-container {
+  .menu__menu-container {
     flex: 0 0 auto;
     margin-bottom: 5vw;
     height: auto;
   }
 }
 
-.page-layout__image-container {
-  flex: 0 1 944px;
-  width: 100%;
-}
-
-@media (max-width: 851px) {
-  .page-layout__image-container {
-    flex: 0 1 auto;
-    margin-bottom: 15vw;
-  }
-}
-
-.page-layout__name-container {
+.menu__name-container {
   margin-bottom: 32px;
 }
 
 @media (max-width: 851px) {
-  .page-layout__name-container {
+  .menu__name-container {
     margin-bottom: 20px;
   }
 }
 
-.page-layout__name-link {
+.menu__name-link {
   text-transform: uppercase;
   font-size: xx-large;
   color: #111111;
@@ -60,53 +42,53 @@
 }
 
 @media (max-width: 851px) {
-  .page-layout__name-link {
+  .menu__name-link {
     font-size: x-large;
   }
 }
 
-.page-layout__menu-part {
+.menu__menu-part {
   margin-left: 20px;
   margin-bottom: 24px;
 }
 
 @media (max-width: 851px) {
-  .page-layout__menu-part {
+  .menu__menu-part {
     margin-bottom: 12px;
   }
 }
 
-.page-layout__menu-top-part {
+.menu__menu-top-part {
   flex: 1 1 auto;
 }
 
-.page-layout__menu-sublist-title {
+.menu__menu-sublist-title {
   text-transform: uppercase;
   color: #707070;
   cursor: pointer;
   transition: display 0.5s ease;
 }
 
-.page-layout__menu-sublist-title:hover {
+.menu__menu-sublist-title:hover {
   color: #111111;
 }
 
-.page-layout__menu-sublist {
+.menu__menu-sublist {
   display: flex;
   flex-direction: column;
   padding-left: 0.5em;
 }
 
-.page-layout__menu-sublist a {
+.menu__menu-sublist a {
   margin: 0.2em 0;
 }
 
-.page-layout__menu-link {
+.menu__menu-link {
   text-decoration: none;
   color: #707070;
 }
 
-.page-layout__menu-link:hover {
+.menu__menu-link:hover {
   color: #111111;
 }
 .menu__bottom-menu_small-screens {

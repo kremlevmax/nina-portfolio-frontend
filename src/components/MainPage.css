@@ -1,3 +1,15 @@
+.main-page__image-container {
+  flex: 0 1 908px;
+  width: 100%;
+}
+
+@media (max-width: 851px) {
+  .main-page__image-container {
+    flex: 0 1 auto;
+    margin-bottom: 15vw;
+  }
+}
+
 .main-page__image {
   width: 100%;
 }

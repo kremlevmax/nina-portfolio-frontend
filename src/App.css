@@ -1,10 +1,25 @@
 .App {
-  width: 100%;
+  max-width: 1210px;
   display: flex;
   justify-content: center;
+  margin: 8vw auto;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+@media (max-width: 851px) {
+  .App {
+    flex-direction: column;
+  }
 }
 
 .app__bottom-menu_small-screens {
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 851px) {
+  .app__bottom-menu_small-screens {
+    display: none;
+  }
 }

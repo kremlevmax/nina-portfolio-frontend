@@ -5,7 +5,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1 1 auto;
+  flex: 0 1 908px;
+}
+
+@media (max-width: 851px) {
+  .project__container {
+    flex: 0 1 auto;
+  }
 }
 
 .project__carousel-container {
@@ -39,11 +45,10 @@
   text-align: justify;
 }
 
-/* @media (max-width: 991.98px) {
-  .project__image-container {
-    margin-bottom: 2em;
-  }
-  .project__description-conatainer {
-    margin: 20px;
-  }
-} */
+.carousel .slide .legend {
+  left: 2px;
+  margin-left: 0;
+  border-radius: 0;
+  width: auto;
+  padding: 10px 20px;
+}

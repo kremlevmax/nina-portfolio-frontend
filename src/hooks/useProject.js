@@ -7,11 +7,7 @@ const PROJECT = gql`
         id
         attributes {
           title
-          title_ru
-          title_skh
           description
-          description_ru
-          description_skh
           photos {
             data {
               id

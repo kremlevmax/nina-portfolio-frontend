@@ -6,14 +6,8 @@ const PROJECTSANDMAINPAGE = gql`
       data {
         attributes {
           name
-          name_ru
-          name_skh
           projects
-          projects_ru
-          projects_skh
           info
-          info_ru
-          info_skh
         }
       }
     }
@@ -23,8 +17,6 @@ const PROJECTSANDMAINPAGE = gql`
         id
         attributes {
           title
-          title_ru
-          title_skh
         }
       }
     }

@@ -76,6 +76,7 @@ export default function Project({ siteLanguage }) {
               imageItem.attributes.file.data[0].attributes.formats.large.url
             }
           />
+          <p className='legend'>{imageItem.attributes.description}</p>
         </div>
       ))
     : [];
@@ -98,6 +99,7 @@ export default function Project({ siteLanguage }) {
             interval={5000}
             showStatus={false}
             swipeableshowArrows={true}
+            animationHandler='fade'
           >
             {images}
           </Carousel>
