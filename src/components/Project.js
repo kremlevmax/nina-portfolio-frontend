@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Project.css";
 import { Carousel } from "react-responsive-carousel";
 import { motion } from "framer-motion";
+import LoadingBackground from "./LoadingBackground";
 
 export default function Project({ siteLanguage }) {
   const { id } = useParams();
@@ -82,6 +83,7 @@ export default function Project({ siteLanguage }) {
     : [];
 
   // if (loading) return <LoadingBackground />;
+  if (loading) return <LoadingBackground />;
 
   if (!loading)
     return (

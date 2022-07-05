@@ -2,7 +2,7 @@
   max-width: 1210px;
   display: flex;
   justify-content: center;
-  margin: 8vw auto;
+  margin: 0 auto;
   padding: 0 20px;
   gap: 20px;
 }
