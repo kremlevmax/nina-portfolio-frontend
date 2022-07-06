@@ -16,6 +16,7 @@
 .app__bottom-menu_small-screens {
   display: flex;
   justify-content: center;
+  margin-bottom: 120px;
 }
 
 @media (min-width: 851px) {
