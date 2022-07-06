@@ -45,7 +45,6 @@ export default function Project({ siteLanguage }) {
       break;
   }
 
-  console.log(imageItems);
   const images = !loading
     ? imageItems.map((imageItem) => (
         <div
