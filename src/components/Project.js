@@ -44,6 +44,8 @@ export default function Project({ siteLanguage }) {
       descriptionString = !loading ? projectDescriptionsArray[0] : "";
       break;
   }
+
+  console.log(imageItems);
   const images = !loading
     ? imageItems.map((imageItem) => (
         <div
@@ -59,12 +61,15 @@ export default function Project({ siteLanguage }) {
               process.env.REACT_APP_BASE_URL +
               imageItem.attributes.file.data[0].attributes.formats.large.url
             }
-            alt={
-              process.env.REACT_APP_BASE_URL +
-              imageItem.attributes.file.data[0].attributes.formats.large.url
-            }
+            alt={imageItem.attributes.description}
           />
-          <p className='legend'>{imageItem.attributes.description}</p>
+          <p className='legend'>
+            {siteLanguage === "en"
+              ? imageItem.attributes.description
+              : siteLanguage === "ru"
+              ? imageItem.attributes.description_ru
+              : imageItem.attributes.description_skh}
+          </p>
         </div>
       ))
     : [];

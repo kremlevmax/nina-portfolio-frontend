@@ -17,6 +17,8 @@ const PROJECT = gql`
               id
               attributes {
                 description
+                description_ru
+                description_skh
                 file {
                   data {
                     attributes {
