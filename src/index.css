@@ -21,5 +21,11 @@ body::-webkit-scrollbar {
 
 #root {
   height: 100%;
-  padding-top: 5vh;
+  padding-top: 15vh;
+}
+
+@media (max-width: 851px) {
+  #root {
+    padding-top: 4vh;
+  }
 }

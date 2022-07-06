@@ -97,11 +97,11 @@ export default function Project({ siteLanguage }) {
         <div className='project__carousel-container'>
           <Carousel
             infiniteLoop
-            // autoPlay
-            interval={5000}
+            autoPlay
+            interval={6000}
             showStatus={false}
             swipeableshowArrows={true}
-            animationHandler='fade'
+            // animationHandler='fade'
           >
             {images}
           </Carousel>
