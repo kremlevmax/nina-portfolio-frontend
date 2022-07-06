@@ -44,19 +44,6 @@ export default function Project({ siteLanguage }) {
       descriptionString = !loading ? projectDescriptionsArray[0] : "";
       break;
   }
-
-  // const images = !loading
-  //   ? imageItems.map((imageItem) => ({
-  //       original:
-  // process.env.REACT_APP_BASE_URL +
-  // imageItem.attributes.file.data[0].attributes.formats.large.url,
-  //       thumbnail:
-  //         process.env.REACT_APP_BASE_URL +
-  //         imageItem.attributes.file.data[0].attributes.formats.thumbnail.url,
-  //       description: descriptionString,
-  //     }))
-  //   : [];
-
   const images = !loading
     ? imageItems.map((imageItem) => (
         <div
@@ -82,7 +69,6 @@ export default function Project({ siteLanguage }) {
       ))
     : [];
 
-  // if (loading) return <LoadingBackground />;
   if (loading) return <LoadingBackground />;
 
   if (!loading)
