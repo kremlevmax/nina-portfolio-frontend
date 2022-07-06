@@ -3,6 +3,12 @@ import britishFlag from "../img/eng_flag.png";
 import sakhaFlag from "../img/sakha_flag.png";
 import russianFlag from "../img/rus_flag.png";
 import "./LanguageSelector.css";
+import { motion, AnimatePresence } from "framer-motion";
+
+const variants = {
+  open: { opacity: 1 },
+  close: { opacity: 0 },
+};
 
 export default function LanguageSelector({ setSiteLanguage }) {
   const languageData = [
@@ -28,8 +34,6 @@ export default function LanguageSelector({ setSiteLanguage }) {
   );
 
   const [show, setShow] = useState(false);
-  const opacity = show ? 1 : 0;
-  const visibility = show ? "visible" : "hidden";
 
   const selectedLanguage = languges.filter(
     (language) => language.selected === true
@@ -90,12 +94,20 @@ export default function LanguageSelector({ setSiteLanguage }) {
         </div>
         <span>{"\u25BC"}</span>
       </div>
-      <div
-        className='language-selector__non-selected-languages'
-        style={{ opacity: opacity, visibility: visibility }}
-      >
-        {nonSelectedLanguages}
-      </div>
+      <AnimatePresence exitBeforeEnter>
+        {show && (
+          <motion.div
+            initial='close'
+            animate={show ? "open" : "close"}
+            variants={variants}
+            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0 }}
+            className='language-selector__non-selected-languages'
+          >
+            {nonSelectedLanguages}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

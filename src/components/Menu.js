@@ -78,7 +78,7 @@ const Menu = ({ siteLanguage, setSiteLanguage }) => {
                 initial='close'
                 animate={isProjectsClicked ? "open" : "close"}
                 variants={variants}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.5 }}
                 exit={{ opacity: 0, height: 0 }}
                 className='menu__menu-sublist projects-sublist'
               >
